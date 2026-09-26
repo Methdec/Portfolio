@@ -21,10 +21,17 @@ export default function Home() {
     },
     {
       id: 'experiences',
-      title: 'Éducation & Expériences',
+      title: 'Expériences',
       description: 'Mon parcours scolaire, diplômes et expériences professionnelles.',
       color: '#8b5cf6',
       path: '/experiences'
+    },
+    {
+      id: 'documents',
+      title: 'CV & Documents',
+      description: 'Consultez ou téléchargez mon Curriculum Vitae et lettres de recommandation.',
+      Color: '#f59e0b',
+      path: '/documents'
     }
   ];
 

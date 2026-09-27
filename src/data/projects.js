@@ -35,6 +35,26 @@ export const projectsData = {
       ],
       githubLink: 'https://github.com/votre-profil/ecommerce',
       demoLink: null
+    },
+    { 
+      id: 'pot-connecte', 
+      title: 'Pot Connecté IoT - Signaux Bioélectriques', 
+      tech: 'ESP32 / C++ / Capteur AD8232 / MQTT',
+      date: 'Juillet-Aout 2026',
+      images: [
+        'https://via.placeholder.com/800x400?text=Projet+Plante+IoT'
+      ],
+      content: [
+        "L'objectif principal de ce projet est de concevoir un système embarqué capable de récupérer, de traiter et de transmettre les signaux bioélectriques (variant entre 1 et 100 mV) émis par une plante vers une interface web[cite: 2]. Ces signaux fluctuent en fonction de leur état et des stimuli environnementaux[cite: 2].",
+        
+        "Architecture matérielle : Le système repose sur un microcontrôleur ESP32 couplé à un capteur cardiaque AD8232, particulièrement adapté pour amplifier les signaux faibles[cite: 2]. Trois électrodes autocollantes de type ECG sont utilisées : une sur une feuille mature, une sur la tige, et une reliée à la masse (GND) placée dans la terre du pot comme point de référence neutre[cite: 2].",
+        
+        "Pipeline d'analyse : Notre proposition d'amélioration visait à intégrer un filtrage en temps réel (filtre IIR retenu pour la version finale) directement sur le microcontrôleur afin d'isoler les signaux biologiques lents et d'éliminer le bruit, avant de proposer une transmission sans fil vers une interface dédiée[cite: 2].",
+        
+        "Plusieurs expériences ont été menées sur des spécimens de Jasmin et d'Orchidée pour établir une base de données de référence[cite: 2] :\n- Stress lumineux : Lors d'une exposition soudaine au soleil, la tension monte brusquement entre 1.75 V et 2 V[cite: 2].\n- Stress physique : Un pic allant de 0.5 V à 2.5 V est mesuré instantanément après la stimulation (toucher direct ou coupure)[cite: 2].\n- Stress hydrique : L'ajout d'eau n'a généré aucun signal distinct attribuable à l'arrosage avec ce capteur, prouvant la nécessité de croiser ces données avec d'autres sondes[cite: 2]."
+      ],
+      githubLink: 'https://github.com/Methdec/Straway-test-de-r-ponses-lectriques-d-une-plante',
+      demoLink: null
     }
   ],
   perso: [

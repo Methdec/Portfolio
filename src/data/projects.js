@@ -6,7 +6,7 @@ export const projectsData = {
       id: 'allscans', 
       title: 'Projet de fin d\'étude : AllScans', 
       tech: 'React / Python / FastAPI / MongoDB / Docker',
-      date: 'Septembre 2025 - Juin 2026',
+      date: '2025 - 2026',
       images: [
         'https://via.placeholder.com/800x400?text=Dashboard+Image+1',
         'https://via.placeholder.com/400x300?text=Dashboard+Image+2',
@@ -22,24 +22,31 @@ export const projectsData = {
     },
     { 
       id: 'flow', 
-      title: 'Projet de fin d\'année 2025 : Twitter Like', 
-      tech: 'Next.js / Stripe',
-      date: 'Septembre 2024 - Juin 2025',
-      images: [
-        'https://via.placeholder.com/800x400?text=Ecommerce+Main'
-      ],
+      title: 'Flow - Réseau Social (Clone de Twitter)',
+      date: '2024 - 2025',
+      tech: 'Next.js / TypeScript / Supabase / Stripe',
+      githubLink: 'https://github.com/LouisMbc/flow',
+      demoLink: '', 
+      images: [], 
       content: [
-        "Migration d'une ancienne boutique WooCommerce vers une architecture moderne Headless en utilisant Next.js. Ce choix technologique a permis d'améliorer drastiquement les temps de chargement et le SEO de la boutique.",
-        "L'intégration complète de l'API Stripe a été réalisée pour gérer les paiements, incluant un système d'abonnement mensuel complexe."
+        "Flow est une application web Full-Stack de type réseau social, fortement inspirée de Twitter (X), réalisée dans le cadre d'un projet de groupe.",
+        "L'objectif était de concevoir une plateforme interactive capable de gérer des flux de données en temps réel, des interactions sociales complexes et un système de monétisation.",
+        "Le projet repose sur une architecture moderne utilisant Next.js et TypeScript pour le front-end, combinés à Supabase pour la gestion de la base de données, de l'authentification et du temps réel.",
+        "[GALLERY_MEDIUM] /images/flowaccueil.png, flowimage2.png",
+        "### Fonctionnalités implémentées :",
+        "- **Moteur social complet :** Publication de posts (tweets), retweets, système de likes, gestion des hashtags et des mentions entre utilisateurs.",
+        "- **Temps réel :** Implémentation d'une messagerie privée (Direct Messages) et d'un système de notifications dynamiques.",
+        "- **Contenu éphémère :** Développement d'un module de 'Stories' permettant de partager des médias temporaires.",
+        "- **Abonnement Premium :** Intégration de l'API Stripe (Checkout et Webhooks) pour débloquer des fonctionnalités exclusives aux abonnés.",
+        "- **Profils personnalisés :** Outil de configuration et d'édition de profil complet avec gestion de followers/following et moteur de recherche intégré."
       ],
-      githubLink: 'https://github.com/votre-profil/ecommerce',
-      demoLink: null
+      documents: []
     },
     { 
       id: 'tamagotchi', 
       title: 'Projet de fin d\'année 2024 : Tamagotchi', 
       tech: 'Arduino / C++ / ESP32',
-      date: 'Septembre 2023 - Juin 2024',
+      date: '2023 - 2024',
       images: [
         'https://via.placeholder.com/800x400?text=Dashboard+Image+1',
         'https://via.placeholder.com/400x300?text=Dashboard+Image+2',

@@ -4,7 +4,7 @@ export default function Home() {
   const menuCards = [
     {
       title: 'Projets Pros',
-      description: 'Découvrez mes réalisations en entreprise et mes stages.',
+      description: 'Découvrez mes réalisations en entreprise, stages et Projet de fin d\'année.',
       link: '/projets/pro',
       // Couleurs adaptées au dark mode : fond gris très foncé, bordure qui s'éclaire au survol
       color: 'bg-slate-800/50 hover:bg-slate-800 border-slate-700 hover:border-blue-500/50',

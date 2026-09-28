@@ -3,18 +3,32 @@ import { Link } from 'react-router-dom';
 export default function Documents() {
   const documentsList = [
     {
-      id: 'cv',
-      title: 'Curriculum Vitae',
+      id: 'cv ft',
+      title: 'CV Paul Bellanger Full Stack',
       description: 'Mon parcours complet, mes compétences techniques et mes formations au format PDF.',
       fileUrl: '/documents/CVPaulBellanger.pdf',
       downloadName: 'CV Paul Bellanger.pdf'
     },
     {
+      id: 'cv iot',
+      title: 'CV Paul Bellanger IoT',
+      description: 'Mon parcours complet, mes compétences techniques et mes formations au format PDF.',
+      fileUrl: '/documents/CVPaulBellangerIoT.pdf',
+      downloadName: 'CV Paul Bellanger IoT.pdf'
+    },
+    {
       id: 'reco1',
-      title: 'Lettre de recommandation',
+      title: 'Lettre de recommandation DRH',
       description: 'Recommandation professionnelle attestant de mon travail et de mes compétences.',
-      fileUrl: '/documents/LettresRecoDRH.pdf',
+      fileUrl: '/documents/LettreRecoDRH.pdf',
       downloadName: 'LettresRecoDRH.pdf'
+    },
+    {
+      id: 'reco2',
+      title: 'Lettre de recommandation Manager',
+      description: 'Recommandation professionnelle attestant de mon travail et de mes compétences.',
+      fileUrl: '/documents/LettreReco.pdf',
+      downloadName: 'LettresRecoManager.pdf'
     }
   ];
 

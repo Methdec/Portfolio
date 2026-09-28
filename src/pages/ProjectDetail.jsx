@@ -1,106 +1,141 @@
-import { useParams, useNavigate } from 'react-router-dom';
-// Import du fichier de données
-import { projectsData } from '../data/projects';
+import { useParams, Link } from 'react-router-dom';
+import { projectsData } from '../data/projects'; 
 
 export default function ProjectDetail() {
   const { projetId } = useParams();
-  const navigate = useNavigate();
 
-  // Fonction utilitaire pour chercher le projet dans toutes les catégories (pro et perso)
-  const findProject = (id) => {
-    const allProjects = [...projectsData.pro, ...projectsData.perso];
-    return allProjects.find(p => p.id === id);
-  };
-
-  const project = findProject(projetId);
+  let project = projectsData.pro.find(p => p.id === projetId);
+  if (!project) {
+    project = projectsData.perso?.find(p => p.id === projetId);
+  }
 
   if (!project) {
-    return (
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '2rem', color: '#ef4444', marginBottom: '1rem' }}>Projet introuvable</h1>
-        <button onClick={() => navigate('/')} style={{ color: '#3b82f6', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 'bold', fontSize: '1rem' }}>
-          Retour à l'accueil
-        </button>
-      </div>
-    );
+    return <div style={{ textAlign: 'center', padding: '4rem' }}><h2>Projet introuvable</h2></div>;
   }
 
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem' }}>
+    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem' }}>
       
-      {/* Bouton retour intelligent */}
-      <button 
-        onClick={() => navigate(-1)}
-        style={{ display: 'inline-block', marginBottom: '2rem', color: '#3b82f6', background: 'none', border: 'none', cursor: 'pointer', fontSize: '1rem', fontWeight: 'bold', padding: 0 }}
-      >
+      <Link onClick={() => window.history.back()} style={{ display: 'inline-block', marginBottom: '2rem', color: '#3b82f6', textDecoration: 'none', fontWeight: 'bold', cursor: 'pointer' }}>
         ← Retour
-      </button>
+      </Link>
 
       <header style={{ marginBottom: '3rem' }}>
-        <h1 style={{ fontSize: '3rem', color: '#0f172a', marginBottom: '0.5rem' }}>
+        <h1 style={{ fontSize: '2.5rem', color: '#0f172a', marginBottom: '1rem' }}>
           {project.title}
         </h1>
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <span style={{ backgroundColor: '#f1f5f9', color: '#475569', padding: '0.25rem 0.75rem', borderRadius: '9999px', fontSize: '0.875rem', fontWeight: 'bold' }}>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+          <span style={{ backgroundColor: '#f1f5f9', color: '#475569', padding: '0.4rem 1rem', borderRadius: '9999px', fontWeight: '500' }}>
             {project.tech}
           </span>
-          <span style={{ color: '#94a3b8', fontSize: '0.875rem' }}>
-            {project.date}
+          <span style={{ color: '#64748b', display: 'flex', alignItems: 'center' }}>
+            Date : {project.date}
           </span>
         </div>
-      </header>
-
-      {/* Affichage conditionnel de la grande image principale si elle existe */}
-      {project.images && project.images.length > 0 && (
-        <img 
-          src={project.images[0]} 
-          alt={`Aperçu principal de ${project.title}`} 
-          style={{ width: '100%', height: 'auto', borderRadius: '8px', marginBottom: '2rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
-        />
-      )}
-
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
         
-        <section style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-          <h2 style={{ fontSize: '1.5rem', color: '#1e293b', marginBottom: '1.5rem' }}>Détails du projet</h2>
-          
-          {/* Affichage dynamique de chaque paragraphe */}
-          {project.content.map((paragraph, index) => (
-            <p key={index} style={{ color: '#475569', lineHeight: '1.7', marginBottom: '1rem' }}>
-              {paragraph}
-            </p>
-          ))}
-
-          {/* Affichage des autres images (sous forme de galerie) s'il y en a plus d'une */}
-          {project.images && project.images.length > 1 && (
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
-              {project.images.slice(1).map((imgUrl, index) => (
-                <img 
-                  key={index}
-                  src={imgUrl} 
-                  alt={`Aperçu additionnel ${index + 2}`} 
-                  style={{ width: 'calc(50% - 0.5rem)', borderRadius: '6px', objectFit: 'cover' }}
-                />
-              ))}
-            </div>
-          )}
-        </section>
-
-        <section style={{ display: 'flex', gap: '1rem' }}>
+        <div style={{ display: 'flex', gap: '1rem' }}>
           {project.githubLink && (
-            <a href={project.githubLink} target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#1e293b', color: 'white', padding: '0.75rem 1.5rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold' }}>
+            <a href={project.githubLink} target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', fontWeight: 'bold', textDecoration: 'underline' }}>
               Code Source (GitHub)
             </a>
           )}
-          
           {project.demoLink && (
-            <a href={project.demoLink} target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#3b82f6', color: 'white', padding: '0.75rem 1.5rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold' }}>
-              Voir la démo en ligne
+            <a href={project.demoLink} target="_blank" rel="noopener noreferrer" style={{ color: '#10b981', fontWeight: 'bold', textDecoration: 'underline' }}>
+              Lien vers le projet
             </a>
           )}
-        </section>
+        </div>
+      </header>
 
-      </div>
+      <section style={{ marginBottom: '3rem' }}>
+        {project.content.map((paragraph, index) => {
+          const cleanParagraph = paragraph.trim();
+          
+          if (cleanParagraph.startsWith('[IMAGE]')) {
+            const imageUrl = cleanParagraph.replace('[IMAGE]', '').trim();
+            return (
+              <img 
+                key={index} 
+                src={imageUrl} 
+                alt={`Illustration ${index}`} 
+                style={{ width: '100%', borderRadius: '8px', margin: '2rem 0', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }} 
+              />
+            );
+          }
+          
+          
+          if (cleanParagraph.startsWith('[GALLERY_MEDIUM]')) {
+            const urls = cleanParagraph.replace('[GALLERY_MEDIUM]', '').split(',');
+            return (
+              <div key={index} style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem', margin: '2rem 0' }}>
+                {urls.map((url, i) => (
+                  <img 
+                    key={i} 
+                    src={url.trim()} 
+                    alt={`Illustration moyenne ${i}`} 
+                    style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }} 
+                  />
+                ))}
+              </div>
+            );
+          }
+
+          // 3. GALERIE PETITE (3 images par ligne)
+          if (cleanParagraph.startsWith('[GALLERY_SMALL]')) {
+            const urls = cleanParagraph.replace('[GALLERY_SMALL]', '').split(',');
+            return (
+              <div key={index} style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', margin: '2rem 0' }}>
+                {urls.map((url, i) => (
+                  <img 
+                    key={i} 
+                    src={url.trim()} 
+                    alt={`Illustration petite ${i}`} 
+                    style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }} 
+                  />
+                ))}
+              </div>
+            );
+          }
+
+
+          return (
+            <p 
+              key={index} 
+              style={{ color: '#334155', lineHeight: '1.8', marginBottom: '1.5rem', whiteSpace: 'pre-line', fontSize: '1.1rem' }}
+            >
+              {paragraph}
+            </p>
+          );
+        })}
+      </section>
+
+      {/* La ligne borderTop et le paddingTop ont été retirés ici */}
+      {project.documents && project.documents.length > 0 && (
+        <section style={{ marginTop: '2rem' }}>
+          <h3 style={{ fontSize: '1.5rem', color: '#0f172a', marginBottom: '1.5rem' }}>
+            Documents associés
+          </h3>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+            {project.documents.map((doc) => (
+              <div key={doc.id} style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                <h4 style={{ fontSize: '1.1rem', color: '#0f172a', marginBottom: '0.5rem' }}>{doc.title}</h4>
+                <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '1.5rem' }}>{doc.description}</p>
+                
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                  <a href={doc.fileUrl} target="_blank" rel="noopener noreferrer" style={{ flex: 1, textAlign: 'center', backgroundColor: '#f1f5f9', color: '#334155', padding: '0.5rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold', fontSize: '0.85rem' }}>
+                    Consulter
+                  </a>
+                  <a href={doc.fileUrl} download={doc.downloadName} style={{ flex: 1, textAlign: 'center', backgroundColor: '#3b82f6', color: 'white', padding: '0.5rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold', fontSize: '0.85rem' }}>
+                    Télécharger
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
     </div>
   );
 }

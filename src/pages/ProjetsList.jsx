@@ -1,5 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
-// Import du fichier de données
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { projectsData } from '../data/projects';
 
 export default function ProjetsList() {
@@ -11,35 +10,87 @@ export default function ProjetsList() {
   const pageTitle = typeProjet === 'pro' ? 'Mes Projets Professionnels' : 'Mes Projets Personnels';
 
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem' }}>
-      
-      {/* Remplacement par navigate(-1) pour le retour intelligent */}
-      <button 
-        onClick={() => navigate(-1)}
-        style={{ display: 'inline-block', marginBottom: '2rem', color: '#3b82f6', background: 'none', border: 'none', cursor: 'pointer', fontSize: '1rem', fontWeight: 'bold', padding: 0 }}
-      >
-        ← Retour
-      </button>
+    <div 
+      className="min-h-screen bg-slate-950 px-4 md:px-8 py-12"
+      style={{
+        backgroundImage: `radial-gradient(rgba(${typeProjet === 'pro' ? '59, 130, 246' : '168, 85, 247'}, 0.15) 1px, transparent 1px)`,
+        backgroundSize: '24px 24px'
+      }}
+    >
+      <div className="max-w-6xl mx-auto">
+        
+        <Link 
+          to="/" 
+          className="inline-flex items-center gap-2 mb-12 text-slate-400 font-bold hover:text-white transition-colors"
+        >
+          ← Retour à l'accueil
+        </Link>
 
-      <h1 style={{ fontSize: '2.5rem', color: '#0f172a', marginBottom: '2rem' }}>
-        {pageTitle}
-      </h1>
+        <h1 className="text-4xl text-white font-bold mb-12 text-center">
+          {typeProjet === 'pro' ? 'Projets Professionnels' : 'Projets Personnels'}
+        </h1>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
-        {projectsToDisplay.map((project) => (
-          <div 
-            key={project.id}
-            style={{ padding: '1.5rem', backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '6px', cursor: 'pointer' }}
-            onClick={() => navigate(`/projet/${project.id}`)}
-          >
-            <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', color: '#1e293b' }}>{project.title}</h3>
-            <span style={{ fontSize: '0.875rem', color: '#64748b', backgroundColor: '#f1f5f9', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>
-              {project.tech}
-            </span>
+        {projectsToDisplay.length === 0 ? (
+          <div className="text-center py-20 bg-slate-900/50 rounded-xl border border-slate-800">
+            <p className="text-slate-400 text-lg">Aucun projet de ce type pour le moment.</p>
           </div>
-        ))}
-      </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projectsToDisplay.map((project) => (
+              
+              <div 
+                key={project.id} 
+                className={`flex flex-col p-6 bg-slate-900/60 backdrop-blur-sm rounded-xl border border-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+                  typeProjet === 'pro' ? 'hover:border-blue-500/50 hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)]' : 'hover:border-purple-500/50 hover:shadow-[0_8px_30px_rgba(168,85,247,0.15)]'
+                }`}
+              >
+                
+                {/* En-tête de la carte : Badges technos à gauche, Date à droite */}
+                <div className="flex justify-between items-start mb-5 gap-4">
+                  
+                  {/* Conteneur des badges technologies */}
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.split('/').map((techItem, index) => (
+                      <span 
+                        key={index} 
+                        className={`text-xs font-bold px-2.5 py-1 rounded-md ${
+                          typeProjet === 'pro' 
+                            ? 'bg-blue-900/40 text-blue-300 border border-blue-800/50' 
+                            : 'bg-purple-900/40 text-purple-300 border border-purple-800/50'
+                        }`}
+                      >
+                        {techItem.trim()}
+                      </span>
+                    ))}
+                  </div>
 
+                  {/* Date avec whitespace-nowrap pour éviter qu'elle ne soit écrasée par les badges */}
+                  <span className="text-sm font-medium text-slate-400 mt-1 whitespace-nowrap">
+                    {project.date}
+                  </span>
+                </div>
+
+                <h2 className="text-2xl font-bold text-white mb-8">
+                  {project.title}
+                </h2>
+
+                <Link 
+                  to={`/projet/${project.id}`}
+                  className={`mt-auto text-center py-3 rounded-lg font-bold text-sm transition-colors ${
+                    typeProjet === 'pro' 
+                      ? 'bg-blue-600 text-white hover:bg-blue-500' 
+                      : 'bg-purple-600 text-white hover:bg-purple-500'
+                  }`}
+                >
+                  Voir le projet en détail
+                </Link>
+
+              </div>
+            ))}
+          </div>
+        )}
+
+      </div>
     </div>
-  )
+  );
 }

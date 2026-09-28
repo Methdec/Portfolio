@@ -41,7 +41,7 @@ export default function Experiences() {
       type: 'pro',
       relatedProjects: [
         { id: 'pot-connecte', name: 'Voir le projet Pot Connecté' }
-      ]
+    ]
     },
     {
       id: 5,
@@ -54,85 +54,94 @@ export default function Experiences() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 md:px-8 py-8">
-      
-      <Link 
-        to="/" 
-        className="inline-block mb-8 text-blue-500 font-bold hover:text-blue-600 transition-colors"
-      >
-        ← Retour à l'accueil
-      </Link>
-
-      <h1 className="text-4xl text-slate-900 font-bold mb-16 text-center">
-        Parcours & Expériences
-      </h1>
-      
-      <div className="relative">
+    <div 
+      className="min-h-screen bg-slate-950 px-4 md:px-8 py-8"
+      style={{
+        backgroundImage: 'radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px)',
+        backgroundSize: '24px 24px'
+      }}
+    >
+      <div className="max-w-5xl mx-auto">
         
-        {/* LIGNE VERTICALE : À gauche sur mobile (left-8), au centre sur PC (md:left-1/2) */}
-        <div className="absolute top-0 bottom-0 left-8 md:left-1/2 w-0.5 bg-slate-200 transform md:-translate-x-1/2"></div>
+        {/* Bouton retour adapté au thème sombre */}
+        <Link 
+          to="/" 
+          className="inline-flex items-center gap-2 mb-12 text-slate-400 font-bold hover:text-white transition-colors"
+        >
+          ← Retour à l'accueil
+        </Link>
 
-        {experiencesData.map((exp) => {
-          const isEdu = exp.type === 'edu';
+        {/* Titre principal */}
+        <h1 className="text-4xl text-white font-bold mb-16 text-center">
+          Parcours & Expériences
+        </h1>
+        
+        <div className="relative">
           
-          return (
-            <div key={exp.id} className="relative mb-12 w-full">
-              
-              {/* LA PUCE (POINT) : S'aligne sur la ligne verticale */}
-              <div className={`absolute top-0 left-8 md:left-1/2 transform -translate-x-1/2 mt-6 w-4 h-4 rounded-full border-4 border-white shadow-<0_0_0_2px_#e2e8f0> z-10 ${isEdu ? 'bg-purple-500' : 'bg-blue-500'}`}>
-              </div>
+          {/* LIGNE VERTICALE assombrie pour se fondre dans le décor */}
+          <div className="absolute top-0 bottom-0 left-8 md:left-1/2 w-0.5 bg-slate-800 transform md:-translate-x-1/2"></div>
 
-              {/* CONTENEUR DE LA CARTE : Gestion du positionnement Gauche/Droite sur PC */}
-              <div className={`ml-16 md:ml-0 md:w-1/2 ${isEdu ? 'md:pr-12 md:mr-auto' : 'md:pl-12 md:ml-auto'}`}>
+          {experiencesData.map((exp) => {
+            const isEdu = exp.type === 'edu';
+            
+            return (
+              <div key={exp.id} className="relative mb-12 w-full">
                 
-                {/* LA CARTE EN ELLE-MÊME */}
-                <div className="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                  
-                  {/* En-tête de la carte */}
-                  <div className="flex flex-col xl:flex-row xl:justify-between xl:items-start gap-4 mb-4">
-                    <div>
-                      <h2 className="text-xl font-bold text-slate-900 mb-1">
-                        {exp.title}
-                      </h2>
-                      <h3 className="text-base text-slate-500 font-normal m-0">
-                        {exp.organization}
-                      </h3>
-                    </div>
-                    
-                    <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-sm font-bold whitespace-nowrap w-fit">
-                      {exp.date}
-                    </span>
-                  </div>
-
-                  {/* Description avec respect des sauts de ligne */}
-                  <p className="text-slate-600 leading-relaxed whitespace-pre-line m-0">
-                    {exp.description}
-                  </p>
-
-                  {/* Bouton de projet associé (si existant) */}
-                  {exp.relatedProjects && exp.relatedProjects.length > 0 && (
-                    <div className="mt-5 flex flex-wrap gap-3">
-                      {exp.relatedProjects.map((projet) => (
-                        <Link 
-                          key={projet.id}
-                          to={`/projet/${projet.id}`}
-                          className="inline-block bg-sky-100 text-sky-800 px-4 py-2 rounded-md font-bold text-sm border border-sky-200 hover:bg-sky-200 transition-colors"
-                        >
-                          {projet.name} →
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                  
+                {/* LA PUCE (POINT) avec des bordures adaptées au fond noir */}
+                <div className={`absolute top-0 left-8 md:left-1/2 transform -translate-x-1/2 mt-6 w-4 h-4 rounded-full border-4 border-slate-950 shadow-<0_0_0_2px_#334155> z-10 ${isEdu ? 'bg-emerald-500' : 'bg-blue-500'}`}>
                 </div>
+
+                {/* CONTENEUR DE LA CARTE */}
+                <div className={`ml-16 md:ml-0 md:w-1/2 ${isEdu ? 'md:pr-12 md:mr-auto' : 'md:pl-12 md:ml-auto'}`}>
+                  
+                  {/* LA CARTE : Fond semi-transparent, bordure subtile, et flou d'arrière-plan */}
+                  <div className="bg-slate-900/60 backdrop-blur-sm p-6 rounded-xl border border-slate-800 hover:border-slate-700 shadow-sm hover:shadow-lg transition-all duration-300">
+                    
+                    <div className="flex flex-col xl:flex-row xl:justify-between xl:items-start gap-4 mb-4">
+                      <div>
+                        <h2 className="text-xl font-bold text-white mb-1">
+                          {exp.title}
+                        </h2>
+                        <h3 className="text-base text-slate-400 font-normal m-0">
+                          {exp.organization}
+                        </h3>
+                      </div>
+                      
+                      {/* Badge de date assombri */}
+                      <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm font-bold whitespace-nowrap w-fit border border-slate-700">
+                        {exp.date}
+                      </span>
+                    </div>
+
+                    {/* Texte de description gris clair pour une bonne lisibilité */}
+                    <p className="text-slate-400 leading-relaxed whitespace-pre-line m-0">
+                      {exp.description}
+                    </p>
+
+                    {/* Liens vers les projets associés (adaptés avec des tons bleus nuit) */}
+                    {exp.relatedProjects && exp.relatedProjects.length > 0 && (
+                      <div className="mt-6 flex flex-wrap gap-3">
+                        {exp.relatedProjects.map((projet) => (
+                          <Link 
+                            key={projet.id}
+                            to={`/projet/${projet.id}`}
+                            className="inline-block bg-blue-950/50 text-blue-300 px-4 py-2 rounded-lg font-bold text-sm border border-blue-900/50 hover:bg-blue-900 hover:text-white transition-colors"
+                          >
+                            {projet.name} →
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                    
+                  </div>
+                </div>
+
               </div>
+            );
+          })}
 
-            </div>
-          );
-        })}
-
+        </div>
       </div>
-      
     </div>
   );
 }

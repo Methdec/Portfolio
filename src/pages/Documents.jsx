@@ -33,43 +33,67 @@ export default function Documents() {
   ];
 
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem' }}>
-      
-      <Link to="/" style={{ display: 'inline-block', marginBottom: '2rem', color: '#3b82f6', textDecoration: 'none', fontWeight: 'bold' }}>
-        ← Retour à l'accueil
-      </Link>
+    <div 
+      className="min-h-screen bg-slate-950 px-4 md:px-8 py-12"
+      style={{
+        backgroundImage: 'radial-gradient(rgba(245, 158, 11, 0.15) 1px, transparent 1px)',
+        backgroundSize: '24px 24px'
+      }}
+    >
+      <div className="max-w-5xl mx-auto">
+        
+        <Link 
+          to="/" 
+          className="inline-flex items-center gap-2 mb-12 text-slate-400 font-bold hover:text-white transition-colors"
+        >
+          ← Retour à l'accueil
+        </Link>
 
-      <h1 style={{ fontSize: '2.5rem', color: '#0f172a', marginBottom: '2rem' }}>
-        Documents & CV
-      </h1>
+        <h1 className="text-4xl text-white font-bold mb-12 text-center">
+          Documents & CV
+        </h1>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-        {documentsList.map((doc) => (
-          <div key={doc.id} style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '8px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            
-            <div>
-              <h2 style={{ fontSize: '1.3rem', color: '#0f172a', marginBottom: '0.75rem' }}>
-                {doc.title}
-              </h2>
-              <p style={{ color: '#64748b', lineHeight: '1.6', marginBottom: '1.5rem' }}>
-                {doc.description}
-              </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {documentsList.map((doc) => (
+            <div 
+              key={doc.id} 
+              className="bg-slate-900/60 backdrop-blur-sm p-6 rounded-xl border border-slate-800 hover:border-amber-500/50 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+            >
+              
+              <div className="mb-8">
+                <h2 className="text-xl font-bold text-white mb-3">
+                  {doc.title}
+                </h2>
+                <p className="text-slate-400 leading-relaxed text-sm">
+                  {doc.description}
+                </p>
+              </div>
+
+              {/* mt-auto permet de toujours pousser les boutons en bas de la carte */}
+              <div className="flex gap-3 mt-auto">
+                <a 
+                  href={doc.fileUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex-1 text-center bg-slate-800 text-slate-300 py-2.5 rounded-lg font-bold text-sm hover:bg-slate-700 hover:text-white transition-colors border border-slate-700"
+                >
+                  Consulter
+                </a>
+
+                <a 
+                  href={doc.fileUrl} 
+                  download={doc.downloadName} 
+                  className="flex-1 text-center bg-amber-600 text-white py-2.5 rounded-lg font-bold text-sm hover:bg-amber-500 transition-colors shadow-<0_0_15px_rgba(217,119,6,0.3)>"
+                >
+                  Télécharger
+                </a>
+              </div>
+              
             </div>
+          ))}
+        </div>
 
-            <div style={{ display: 'flex', gap: '0.75rem' }}>
-              <a href={doc.fileUrl} target="_blank" rel="noopener noreferrer" style={{ flex: 1, textAlign: 'center', backgroundColor: '#f1f5f9', color: '#334155', padding: '0.6rem 1rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold', fontSize: '0.9rem' }}>
-                Consulter
-              </a>
-
-              <a href={doc.fileUrl} download={doc.downloadName} style={{ flex: 1, textAlign: 'center', backgroundColor: '#3b82f6', color: 'white', padding: '0.6rem 1rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 'bold', fontSize: '0.9rem' }}>
-                Télécharger
-              </a>
-            </div>
-            
-          </div>
-        ))}
       </div>
-
     </div>
   );
 }

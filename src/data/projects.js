@@ -4,9 +4,9 @@ export const projectsData = {
   pro: [
     { 
       id: 'allscans', 
-      title: 'Projet de fin d\'étude 2026 : AllScans', 
+      title: 'Projet de fin d\'étude : AllScans', 
       tech: 'React / Node.js',
-      date: 'Septembre 2025',
+      date: 'Septembre 2025 - Juin 2026',
       images: [
         'https://via.placeholder.com/800x400?text=Dashboard+Image+1',
         'https://via.placeholder.com/400x300?text=Dashboard+Image+2',
@@ -24,7 +24,7 @@ export const projectsData = {
       id: 'flow', 
       title: 'Projet de fin d\'année 2025 : Twitter Like', 
       tech: 'Next.js / Stripe',
-      date: 'Février 2026',
+      date: 'Septembre 2024 - Juin 2025',
       images: [
         'https://via.placeholder.com/800x400?text=Ecommerce+Main'
       ],
@@ -38,8 +38,8 @@ export const projectsData = {
     { 
       id: 'tamagotchi', 
       title: 'Projet de fin d\'année 2024 : Tamagotchi', 
-      tech: 'React / Node.js',
-      date: 'Septembre 2025',
+      tech: 'Arduino / C++ / ESP32',
+      date: 'Septembre 2023 - Juin 2024',
       images: [
         'https://via.placeholder.com/800x400?text=Dashboard+Image+1',
         'https://via.placeholder.com/400x300?text=Dashboard+Image+2',
@@ -57,7 +57,7 @@ export const projectsData = {
       id: 'pot-connecte', 
       title: 'Pot Connecté IoT - Signaux Bioélectriques', 
       tech: 'ESP32 / C++ / Capteur AD8232 / MQTT',
-      date: 'Juillet-Aout 2026',
+      date: 'Juillet-Aout 2025',
 
       images: [], 
       content: [

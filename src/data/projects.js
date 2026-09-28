@@ -60,28 +60,6 @@ export const projectsData = {
       githubLink: 'https://github.com/votre-profil/dashboard',
       demoLink: 'https://demo-dashboard.com'
     },
-    {
-      id: 'portfolio-react',
-      title: 'Portfolio Personnel - React & Tailwind',
-      tech: 'React / Tailwind CSS / Vite / Vercel',
-      date: 'Septembre 2026',
-      githubLink: 'https://github.com/Methdec/Portfolio',
-      demoLink: '/',
-      images: [],
-      content: [
-        "Conception et développement de ce **portfolio interactif** (le site sur lequel vous naviguez actuellement) afin de présenter mon parcours, mes compétences et mes réalisations de manière centralisée.",
-        
-        "### Design & UI/UX",
-        "L'interface a été entièrement pensée autour d'un **Dark Mode** élégant pour un rendu développeur très moderne. Elle intègre des effets de **Glassmorphism** (cartes en verre dépoli), des grilles d'arrière-plan subtiles et colorées selon les sections, ainsi que des animations d'apparition fluides pour maximiser l'expérience utilisateur.",
-        
-        "### Architecture Technique",
-        "- **Single Page Application (SPA)** ultra-rapide propulsée par **Vite** et structurée en composants modulaires avec **React**.\n- Routage dynamique géré par **React Router** pour une navigation instantanée sans rechargement de page.\n- Intégration d'un **interpréteur de texte sur-mesure** en JavaScript permettant de parser des balises personnalisées (pour le gras ou les sous-titres) afin de faciliter la rédaction du contenu.\n- Styling 100% responsive et utilitaire réalisé avec **Tailwind CSS**.",
-        
-        "### Déploiement & CI/CD",
-        "L'hébergement est assuré par **Vercel**. Le projet est directement synchronisé avec le dépôt **GitHub** pour garantir une intégration et un déploiement continus (**CI/CD**). Chaque nouveau projet ajouté dans le code est ainsi automatiquement poussé en production sans action supplémentaire.",
-      ],
-      documents: []
-    },
     { 
       id: 'pot-connecte', 
       title: 'Pot Connecté IoT - Signaux Bioélectriques',
@@ -114,20 +92,27 @@ export const projectsData = {
     }
   ],
   perso: [
-    { 
-      id: 'p3', 
-      title: 'Générateur de portfolio', 
-      tech: 'Vite / React',
-      date: 'Avril 2026',
-      images: [], // Tableau vide si pas d'image
+    {
+      id: 'portfolio-react',
+      title: 'Portfolio Personnel - React & Tailwind',
+      tech: 'React / Tailwind CSS / Vite / Vercel',
+      date: 'Septembre 2026',
+      githubLink: 'https://github.com/Methdec/Portfolio',
+      demoLink: '/',
+      images: [],
       content: [
-        "Un projet personnel né du besoin de créer rapidement mon propre portfolio. J'ai décidé d'en faire un outil réutilisable.",
-        "Le principe est simple : on édite un fichier de configuration JSON, et l'application génère dynamiquement les pages et le routage associé."
+        "Conception et développement de ce **portfolio interactif** (le site sur lequel vous naviguez actuellement) afin de présenter mon parcours, mes compétences et mes réalisations de manière centralisée.",
+        
+        "### Design & UI/UX",
+        "L'interface a été entièrement pensée autour d'un **Dark Mode** élégant pour un rendu développeur très moderne. Elle intègre des effets de **Glassmorphism** (cartes en verre dépoli), des grilles d'arrière-plan subtiles et colorées selon les sections, ainsi que des animations d'apparition fluides pour maximiser l'expérience utilisateur.",
+        
+        "### Architecture Technique",
+        "- **Single Page Application (SPA)** ultra-rapide propulsée par **Vite** et structurée en composants modulaires avec **React**.\n- Routage dynamique géré par **React Router** pour une navigation instantanée sans rechargement de page.\n- Intégration d'un **interpréteur de texte sur-mesure** en JavaScript permettant de parser des balises personnalisées (pour le gras ou les sous-titres) afin de faciliter la rédaction du contenu.\n- Styling 100% responsive et utilitaire réalisé avec **Tailwind CSS**.",
+        
+        "### Déploiement & CI/CD",
+        "L'hébergement est assuré par **Vercel**. Le projet est directement synchronisé avec le dépôt **GitHub** pour garantir une intégration et un déploiement continus (**CI/CD**). Chaque nouveau projet ajouté dans le code est ainsi automatiquement poussé en production sans action supplémentaire.",
       ],
-      githubLink: 'https://github.com/votre-profil/portfolio-gen',
-      demoLink: 'https://portfolio-gen.com'
-    },
-    { id: 'p4', title: 'Bot Discord', tech: 'Python', date: 'Janvier 2026', images: [], content: ["Bot utilitaire..."], githubLink: '', demoLink: '' },
-    { id: 'p5', title: 'App météo', tech: 'React Native', date: 'Mars 2025', images: [], content: ["App mobile..."], githubLink: '', demoLink: '' }
-  ]
+      documents: []
+    }
+    ]
 };

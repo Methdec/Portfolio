@@ -4,7 +4,6 @@ import { projectsData } from '../data/projects';
 export default function ProjectDetail() {
   const { projetId } = useParams();
 
-  // 1. Détection du projet et de son type (Pro ou Perso)
   let isPro = true;
   let project = projectsData.pro.find(p => p.id === projetId);
   
@@ -13,7 +12,6 @@ export default function ProjectDetail() {
     isPro = false;
   }
 
-  // Si le projet n'existe pas
   if (!project) {
     return (
       <div className="min-h-screen bg-slate-950 flex justify-center items-center">
@@ -22,9 +20,21 @@ export default function ProjectDetail() {
     );
   }
 
-  // 2. Variables de couleurs dynamiques
-  const themeColorRGB = isPro ? '59, 130, 246' : '168, 85, 247'; // Bleu ou Violet
+  const themeColorRGB = isPro ? '59, 130, 246' : '168, 85, 247'; 
   const themeBadgeBg = isPro ? 'bg-blue-900/40 text-blue-300 border-blue-800/50' : 'bg-purple-900/40 text-purple-300 border-purple-800/50';
+
+  // NOUVELLE FONCTION : Transforme les **texte** en balises **
+  const renderTextWithBold = (text) => {
+    // Sépare le texte à chaque balise **
+    const parts = text.split(/\*\*(.*?)\*\*/g);
+    return parts.map((part, index) => {
+      // Les index impairs (1, 3, 5...) sont les mots qui étaient entre ** **
+      if (index % 2 === 1) {
+        return <strong key={index} className="font-bold text-white">{part}</strong>;
+      }
+      return part;
+    });
+  };
 
   return (
     <div 
@@ -36,7 +46,6 @@ export default function ProjectDetail() {
     >
       <div className="max-w-4xl mx-auto">
         
-        {/* BOUTON RETOUR */}
         <Link 
           onClick={() => window.history.back()} 
           className="inline-flex items-center gap-2 mb-12 text-slate-400 font-bold hover:text-white transition-colors cursor-pointer decoration-transparent"
@@ -44,16 +53,18 @@ export default function ProjectDetail() {
           ← Retour
         </Link>
 
-        {/* EN-TÊTE DU PROJET */}
         <header className="mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
             {project.title}
           </h1>
           
           <div className="flex flex-wrap gap-4 items-center mb-8">
-            <span className={`px-4 py-1.5 rounded-md text-sm font-bold border ${themeBadgeBg}`}>
-              {project.tech}
-            </span>
+            {/* Découpage des technologies pour créer plusieurs badges */}
+            {project.tech && project.tech.split('/').map((techItem, index) => (
+              <span key={index} className={`px-4 py-1.5 rounded-md text-sm font-bold border ${themeBadgeBg}`}>
+                {techItem.trim()}
+              </span>
+            ))}
             <span className="text-slate-400 font-medium flex items-center gap-2">
               Date : {project.date}
             </span>
@@ -83,11 +94,20 @@ export default function ProjectDetail() {
           </div>
         </header>
 
-        {/* CONTENU DU PROJET (Texte + Images) */}
         <section className="mb-16">
           {project.content.map((paragraph, index) => {
             const cleanParagraph = paragraph.trim();
             
+            // TITRES AVEC ###
+            if (cleanParagraph.startsWith('### ')) {
+              return (
+                <h3 key={index} className="text-2xl font-bold text-white mt-10 mb-6">
+                  {cleanParagraph.replace('### ', '')}
+                </h3>
+              );
+            }
+
+            // IMAGES...
             if (cleanParagraph.startsWith('[IMAGE]')) {
               const imageUrl = cleanParagraph.replace('[IMAGE]', '').trim();
               return (
@@ -132,24 +152,25 @@ export default function ProjectDetail() {
               );
             }
 
+            // PARAGRAPHES NORMAUX (avec détection du gras)
             return (
               <p 
                 key={index} 
                 className="text-slate-300 text-lg leading-relaxed mb-6 whitespace-pre-line"
               >
-                {paragraph}
+                {/* On passe le texte à notre nouvelle fonction */}
+                {renderTextWithBold(cleanParagraph)}
               </p>
             );
           })}
         </section>
 
-        {/* DOCUMENTS ASSOCIÉS */}
+        {/* ... (Section des Documents associées inchangée) ... */}
         {project.documents && project.documents.length > 0 && (
           <section className="mt-16 pt-12 border-t border-slate-800/50">
             <h3 className="text-2xl font-bold text-white mb-8">
               Documents associés
             </h3>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {project.documents.map((doc) => (
                 <div 
@@ -158,23 +179,9 @@ export default function ProjectDetail() {
                 >
                   <h4 className="text-xl font-bold text-white mb-2">{doc.title}</h4>
                   <p className="text-slate-400 text-sm leading-relaxed mb-6">{doc.description}</p>
-                  
                   <div className="flex gap-3 mt-auto">
-                    <a 
-                      href={doc.fileUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="flex-1 text-center bg-slate-800 text-slate-300 py-2.5 rounded-lg font-bold text-sm hover:bg-slate-700 hover:text-white transition-colors border border-slate-700"
-                    >
-                      Consulter
-                    </a>
-                    <a 
-                      href={doc.fileUrl} 
-                      download={doc.downloadName} 
-                      className="flex-1 text-center bg-amber-600 text-white py-2.5 rounded-lg font-bold text-sm hover:bg-amber-500 transition-colors shadow-[0_0_15px_rgba(217,119,6,0.3)]"
-                    >
-                      Télécharger
-                    </a>
+                    <a href={doc.fileUrl} target="_blank" rel="noopener noreferrer" className="flex-1 text-center bg-slate-800 text-slate-300 py-2.5 rounded-lg font-bold text-sm hover:bg-slate-700 hover:text-white transition-colors border border-slate-700">Consulter</a>
+                    <a href={doc.fileUrl} download={doc.downloadName} className="flex-1 text-center bg-amber-600 text-white py-2.5 rounded-lg font-bold text-sm hover:bg-amber-500 transition-colors shadow-[0_0_15px_rgba(217,119,6,0.3)]">Télécharger</a>
                   </div>
                 </div>
               ))}

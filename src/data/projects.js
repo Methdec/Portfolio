@@ -32,7 +32,7 @@ export const projectsData = {
         "Flow est une application web Full-Stack de type réseau social, fortement inspirée de Twitter (X), réalisée dans le cadre d'un projet de groupe.",
         "L'objectif était de concevoir une plateforme interactive capable de gérer des flux de données en temps réel, des interactions sociales complexes et un système de monétisation.",
         "Le projet repose sur une architecture moderne utilisant Next.js et TypeScript pour le front-end, combinés à Supabase pour la gestion de la base de données, de l'authentification et du temps réel.",
-        "[GALLERY_MEDIUM] /images/flowaccueil.png, flowimage2.png",
+        "[GALLERY_MEDIUM] /images/flowaccueil.png, /images/flowimage2.png",
         "### Fonctionnalités implémentées :",
         "- **Moteur social complet :** Publication de posts (tweets), retweets, système de likes, gestion des hashtags et des mentions entre utilisateurs.",
         "- **Temps réel :** Implémentation d'une messagerie privée (Direct Messages) et d'un système de notifications dynamiques.",
@@ -60,19 +60,42 @@ export const projectsData = {
       githubLink: 'https://github.com/votre-profil/dashboard',
       demoLink: 'https://demo-dashboard.com'
     },
+    {
+      id: 'portfolio-react',
+      title: 'Portfolio Personnel - React & Tailwind',
+      tech: 'React / Tailwind CSS / Vite / Vercel',
+      date: 'Septembre 2026',
+      githubLink: 'https://github.com/Methdec/Portfolio',
+      demoLink: '/',
+      images: [],
+      content: [
+        "Conception et développement de ce **portfolio interactif** (le site sur lequel vous naviguez actuellement) afin de présenter mon parcours, mes compétences et mes réalisations de manière centralisée.",
+        
+        "### Design & UI/UX",
+        "L'interface a été entièrement pensée autour d'un **Dark Mode** élégant pour un rendu développeur très moderne. Elle intègre des effets de **Glassmorphism** (cartes en verre dépoli), des grilles d'arrière-plan subtiles et colorées selon les sections, ainsi que des animations d'apparition fluides pour maximiser l'expérience utilisateur.",
+        
+        "### Architecture Technique",
+        "- **Single Page Application (SPA)** ultra-rapide propulsée par **Vite** et structurée en composants modulaires avec **React**.\n- Routage dynamique géré par **React Router** pour une navigation instantanée sans rechargement de page.\n- Intégration d'un **interpréteur de texte sur-mesure** en JavaScript permettant de parser des balises personnalisées (pour le gras ou les sous-titres) afin de faciliter la rédaction du contenu.\n- Styling 100% responsive et utilitaire réalisé avec **Tailwind CSS**.",
+        
+        "### Déploiement & CI/CD",
+        "L'hébergement est assuré par **Vercel**. Le projet est directement synchronisé avec le dépôt **GitHub** pour garantir une intégration et un déploiement continus (**CI/CD**). Chaque nouveau projet ajouté dans le code est ainsi automatiquement poussé en production sans action supplémentaire.",
+      ],
+      documents: []
+    },
     { 
       id: 'pot-connecte', 
-      title: 'Pot Connecté IoT - Signaux Bioélectriques', 
+      title: 'Pot Connecté IoT - Signaux Bioélectriques',
       tech: 'ESP32 / C++ / Capteur AD8232 / MQTT',
-      date: 'Juillet-Aout 2025',
-
-      images: [], 
+      date: 'Juillet - Août 2025',
+      images: [],
       content: [
-        "L'objectif principal de ce projet est de concevoir un système embarqué capable de récupérer, de traiter et de transmettre les signaux bioélectriques (variant entre 1 et 100 mV) émis par une plante vers une interface web. Ces signaux fluctuent en fonction de leur état et des stimuli environnementaux.",
+        "L'objectif principal de ce projet est de concevoir un **système embarqué** capable de récupérer, de traiter et de transmettre les **signaux bioélectriques** (variant entre 1 et 100 mV) émis par une plante vers une interface web. Ces signaux fluctuent en fonction de leur état et des stimuli environnementaux.",
         
-        "Architecture matérielle : Le système repose sur un microcontrôleur ESP32 couplé à un capteur cardiaque AD8232, particulièrement adapté pour amplifier les signaux faibles. Trois électrodes autocollantes de type ECG sont utilisées.",
+        "### Architecture matérielle",
+        "Le système repose sur un microcontrôleur **ESP32** couplé à un **capteur cardiaque AD8232**, particulièrement adapté pour amplifier les signaux faibles. Trois électrodes autocollantes de type ECG sont utilisées pour capter l'activité de la plante.",
         
-        "Plusieurs expériences ont été menées sur des spécimens de Jasmin et d'Orchidée pour établir une base de données de référence :\n- Stress lumineux : Lors d'une exposition soudaine au soleil\n- Stress physique : Un pic allant de 0.5 mV à 2.5 mV est mesuré\n- Stress hydrique : L'ajout d'eau n'a généré aucun signal distinct",
+        "### Expériences et mesures",
+        "Plusieurs expériences ont été menées sur des spécimens de Jasmin et d'Orchidée pour établir une base de données de référence :\n\n- **Stress lumineux :** Réaction mesurée lors d'une exposition soudaine au soleil.\n- **Stress physique :** Un pic allant de 0.5 mV à 2.5 mV est enregistré lors d'une perturbation.\n- **Stress hydrique :** L'ajout d'eau n'a généré aucun signal électrique distinct.",
         
         "[GALLERY_MEDIUM] /images/potconnecteimage1.png, /images/potconnecteimage2.png"
       ],

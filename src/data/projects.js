@@ -5,7 +5,7 @@ export const projectsData = {
     { 
       id: 'allscans', 
       title: 'Projet de fin d\'étude : AllScans', 
-      tech: 'React / Node.js',
+      tech: 'React / Python / FastAPI / MongoDB / Docker',
       date: 'Septembre 2025 - Juin 2026',
       images: [
         'https://via.placeholder.com/800x400?text=Dashboard+Image+1',

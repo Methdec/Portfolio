@@ -88,12 +88,16 @@ export const projectsData = {
         "- **Électronique :** Cerveau basé sur un microcontrôleur **ESP32**, couplé à un écran matriciel LED de 16x32 pixels et 5 boutons physiques d'interaction. Câblage et soudures réalisés à la main.",
         "- **Conception 3D :** Boîtier modélisé sur mesure. Une fonctionnalité unique permet de fixer des « couches » supplémentaires sur la coque grâce à des aimants, faisant correspondre l'aspect physique de la console au **skin virtuel** équipé en jeu.",
         
+        "[GALLERY_MEDIUM] /images/tama1.jpeg, /images/tamacoque.jpeg",
+
         "### Mini-jeux & RPG Procédural",
         "Pour maintenir la jauge de joie, la télévision de la chambre permet d'accéder à plusieurs applications :",
         "- **Arcade Dodge :** Un jeu de survie où le slime doit esquiver des pluies de météorites à la difficulté croissante, intégrant un système de **Scoreboard**.",
         "- **Dungeon Crawler RPG :** Un véritable mini-RPG se déroulant dans un labyrinthe de 25 salles (5x5) généré **procéduralement**. Il inclut un système de combat contre 4 types de monstres, un inventaire de loot, et des salles spéciales (rivière, runes à usage unique pour booster ses statistiques).",
         "- **Boss Fight caché :** Les matériaux lootés peuvent être vendus à un marchand dans le donjon. Rassembler assez d'argent permet d'acheter une clé secrète déclenchant un combat de boss en 3 phases contre le marchand lui-même.",
         
+        "[IMAGE] /images/tama1game.jpg",
+
         "### Direction Artistique & Bonus",
         "- **Pixel Art 100% Custom :** L'intégralité des sprites (animations, monstres, décors) a été dessinée à la main sur Pixilart.",
         "- **Système de succès :** Les scores obtenus et les boss vaincus débloquent de nouvelles apparences (skins) équipables.",
@@ -155,6 +159,34 @@ export const projectsData = {
         
         "### Déploiement & CI/CD",
         "L'hébergement est assuré par **Vercel**. Le projet est directement synchronisé avec le dépôt **GitHub** pour garantir une intégration et un déploiement continus (**CI/CD**). Chaque nouveau projet ajouté dans le code est ainsi automatiquement poussé en production sans action supplémentaire.",
+      ],
+      documents: []
+    },
+    {
+      id: 'tamagotchi2',
+      title: 'Tamagitchi 2.0',
+      tech: 'ESP32 / C++ / Game Design / Pixel Art',
+      date: 'juillet 2024 - Projet en pause',
+      githubLink: '',
+      demoLink: 'https://www.pixilart.com/argon4te',
+      images: [],
+      content: [
+        "Ce projet est le successeur spirituel de ma première console Tamagotchi. L'ambition était de repousser les limites matérielles et logicielles du premier opus en intégrant un **écran couleur 8 fois plus grand**.",
+        
+        "Faute de temps, ce projet est actuellement à l'état de **prototype**. Néanmoins, toute la phase de conception matérielle (réflexion IoT, câblage) et la direction artistique sont abouties.",
+        
+        "### Direction Artistique & Pixel Art",
+        "L'intégralité des assets graphiques a été réalisée à la main. Le passage à un écran couleur plus large a permis de créer des sprites beaucoup plus détaillés et de donner une véritable identité visuelle au projet, posant des bases solides pour l'interface et les personnages.",
+        
+        "[GALLERY_MEDIUM] /images/arcadiaaccueil.png, /images/arcadiasprite.gif",
+        "[IMAGE] /images/arcadiafight.gif",
+
+        "### Narration & RPG au tour par tour",
+        "L'évolution majeure du gameplay résidait dans l'intégration d'un **RPG au tour par tour** axé sur la narration. Une grande partie du scénario a été rédigée en amont, intégrant un système d'arborescence : les **choix de dialogues** devaient avoir un impact direct sur le déroulement de l'histoire et le développement du Tamagotchi.",
+        
+        "Bien que la programmation C++ de ces mécaniques n'ait pas pu être finalisée, ce projet démontre une forte appétence pour le Game Design et le prototypage matériel.",
+        
+        "[IMAGE] /images/tama2.jpeg",
       ],
       documents: []
     }

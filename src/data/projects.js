@@ -42,23 +42,38 @@ export const projectsData = {
       ],
       documents: []
     },
-    { 
-      id: 'tamagotchi', 
-      title: 'Projet de fin d\'année 2024 : Tamagotchi', 
-      tech: 'Arduino / C++ / ESP32',
-      date: '2023 - 2024',
-      images: [
-        'https://via.placeholder.com/800x400?text=Dashboard+Image+1',
-        'https://via.placeholder.com/400x300?text=Dashboard+Image+2',
-        'https://via.placeholder.com/400x300?text=Dashboard+Image+3'
-      ],
+    {
+      id: 'tamagotchi-esp32',
+      title: 'Console Tamagotchi & Mini-RPG',
+      tech: 'ESP32 / C++ / Impression 3D / Pixel Art',
+      date: '2024',
+      githubLink: 'https://github.com/Methdec/Tamagotchi',
+      demoLink: 'https://www.pixilart.com/argon4te',
+      images: [],
       content: [
-        "Ce projet consistait à développer un tableau de bord complet pour la gestion des clients d'une agence locale. L'objectif principal était de regrouper toutes les informations éparpillées dans divers fichiers Excel vers une interface unique et sécurisée.",
-        "J'ai pris en charge le développement full-stack, de la conception de la base de données PostgreSQL jusqu'à l'interface en React. Une attention particulière a été portée sur l'optimisation des requêtes, car le volume de données à traiter quotidiennement était important.",
-        "L'un des plus gros défis a été la mise en place d'un système de génération de rapports PDF à la volée, qui a nécessité l'intégration d'une file d'attente pour ne pas bloquer l'interface utilisateur lors des exports lourds."
+        "Réalisation d'un projet de fin d'année ambitieux : la conception de A à Z d'une **console portable type Tamagotchi**. Le projet allie ingénierie matérielle, modélisation 3D, développement C++ embarqué et création graphique.",
+        
+        "Le concept de base repose sur l'entretien d'un petit slime virtuel (nourriture via des cookies, sommeil) géré par deux jauges critiques : la **faim** et la **joie**. Si la créature ne mange pas, elle meurt de faim ; si on ne joue pas avec elle, sa jauge de joie tombe à zéro et elle se suicide.",
+        
+        "### Hardware & Modélisation 3D",
+        "- **Électronique :** Cerveau basé sur un microcontrôleur **ESP32**, couplé à un écran matriciel LED de 16x32 pixels et 5 boutons physiques d'interaction. Câblage et soudures réalisés à la main.",
+        "- **Conception 3D :** Boîtier modélisé sur mesure. Une fonctionnalité unique permet de fixer des « couches » supplémentaires sur la coque grâce à des aimants, faisant correspondre l'aspect physique de la console au **skin virtuel** équipé en jeu.",
+        
+        "### Mini-jeux & RPG Procédural",
+        "Pour maintenir la jauge de joie, la télévision de la chambre permet d'accéder à plusieurs applications :",
+        "- **Arcade Dodge :** Un jeu de survie où le slime doit esquiver des pluies de météorites à la difficulté croissante, intégrant un système de **Scoreboard**.",
+        "- **Dungeon Crawler RPG :** Un véritable mini-RPG se déroulant dans un labyrinthe de 25 salles (5x5) généré **procéduralement**. Il inclut un système de combat contre 4 types de monstres, un inventaire de loot, et des salles spéciales (rivière, runes à usage unique pour booster ses statistiques).",
+        "- **Boss Fight caché :** Les matériaux lootés peuvent être vendus à un marchand dans le donjon. Rassembler assez d'argent permet d'acheter une clé secrète déclenchant un combat de boss en 3 phases contre le marchand lui-même.",
+        
+        "### Direction Artistique & Bonus",
+        "- **Pixel Art 100% Custom :** L'intégralité des sprites (animations, monstres, décors) a été dessinée à la main sur Pixilart.",
+        "- **Système de succès :** Les scores obtenus et les boss vaincus débloquent de nouvelles apparences (skins) équipables.",
+        "- **Générateur de Courbes de Lissajous :** Intégration d'un algorithme mathématique générant des courbes harmoniques géométriques en fonction de paramètres X et Y modifiables en temps réel.",
+        "- **Godmode & Settings :** Menu d'options complet pour paramétrer la console, activer la triche ou réinitialiser la sauvegarde EEPROM.",
+        
+        "[GALLERY_MEDIUM] /images/exemplesprite2.gif, /images/exemplesprite.gif"
       ],
-      githubLink: 'https://github.com/votre-profil/dashboard',
-      demoLink: 'https://demo-dashboard.com'
+      documents: []
     },
     { 
       id: 'pot-connecte', 

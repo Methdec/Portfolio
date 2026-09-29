@@ -4,15 +4,50 @@ export const projectsData = {
   pro: [
     { 
       id: 'allscans', 
-      title: 'Projet de fin d\'étude : AllScans', 
-      tech: 'React / Python / FastAPI / MongoDB / Docker',
-      date: '2025 - 2026',
+      title: 'All Scans - Gestionnaire de Collection MTG',
+      tech: 'React / FastAPI / MongoDB / Docker',
+      date: '2026',
+      githubLink: 'https://github.com/Methdec/All_Scans', 
+      demoLink: '', 
       images: [],
       content: [
-        "Work in progress"
+        "Réalisation en autonomie complète de mon projet de fin d'études validant le titre de Concepteur Développeur d'Applications (CDA). **All Scans** est une application web full-stack conçue pour résoudre une problématique complexe des joueurs de Magic: The Gathering : la **gestion stricte de l'allocation physique** des cartes.",
+        
+        "Contrairement aux outils existants, l'application crée un pont logique entre l'inventaire numérique et la réalité matérielle : une carte assignée à un deck matériellement « construit » est verrouillée logiciellement et ne peut plus être utilisée ailleurs.",
+        "[GALLERY_MEDIUM] /images/allscansaccueil.png, /images/allscansui.png",
+        "### Architecture 3-Tiers & DevOps",
+        "L'infrastructure repose sur une architecture conteneurisée isochrone garantissant la fiabilité des déploiements :",
+        "- **Frontend React :** Single Page Application (SPA) optimisée avec défilement infini, annulation de requêtes obsolètes (AbortController) et debouncing pour une UX fluide.",
+        "- **Backend FastAPI (Python) :** API RESTful asynchrone hautes performances, gérant les requêtes lourdes (batching) vers l'API mondiale Scryfall sans bloquer le thread principal.",
+        "- **Base de données MongoDB :** Le choix du NoSQL orienté document offre la flexibilité indispensable pour absorber les mutations imprévisibles des données de cartes sans nécessiter de lourdes migrations SQL.",
+        "- **CI/CD & Docker :** Conteneurisation complète orchestrée par **Docker Compose** et intégration continue automatisée via **GitHub Actions** (déclenchement de la suite de tests Pytest à chaque push).",
+        
+        "### Sécurité Avancée & Algorithmique",
+        "- **Cryptographie robuste :** Les mots de passe sont hachés via l'algorithme **Argon2id**, conçu pour résister aux attaques par force brute (GPU/ASIC).",
+        "- **Gestion des sessions :** Utilisation de **jetons opaques** stockés en base et transportés via des cookies **HttpOnly**, permettant une révocation instantanée et bloquant les failles XSS.",
+        "- **Authentification Multifacteur (MFA) :** Intégration du standard TOTP compatible avec Microsoft/Google Authenticator.",
+        "- **Parseur & Moteur de Tags :** Développement d'un parseur d'importation basé sur les expressions régulières, couplé à un moteur permettant à l'utilisateur de créer des règles logiques complexes (ex: SI type contient 'insect' OU 'spider' ALORS appliquer le tag 'Nuisible').",
+        
+        "### Perspective Matérielle (IoT)",
+        "L'ingénierie logicielle a été complétée par une phase d'idéation matérielle : la conception 3D et la sélection des composants (ESP32-CAM, Moteurs pas-à-pas NEMA, lecteurs NFC) pour le futur prototypage d'une **station de tri robotisée** des cartes physiques."
+        
       ],
-      githubLink: 'https://github.com/Methdec/All_Scans',
-      demoLink: 'https://demo-dashboard.com'
+      documents: [
+        {
+          id: 'rapport-cda-allscans',
+          title: 'Rapport de Projet CDA',
+          description: 'Dossier complet détaillant l\'architecture logicielle, les choix techniques, la gestion de base de données et les stratégies de sécurité.',
+          fileUrl: '/documents/Rapport CDA Paul Bellanger.pdf',
+          downloadName: 'Rapport_CDA_Paul_Bellanger.pdf'
+        },
+        {
+          id: 'presentation-sommaire',
+          title: 'Support de Présentation',
+          description: 'Slides de présentation illustrant les User Stories, les statistiques et les schémas relationnels de la base de données.',
+          fileUrl: '/documents/SOMMAIRE.pdf',
+          downloadName: 'Presentation_All_Scans.pdf'
+        }
+      ]
     },
     { 
       id: 'flow', 

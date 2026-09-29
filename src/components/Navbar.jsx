@@ -12,7 +12,6 @@ export default function Navbar() {
     return null;
   }
 
-  // Fonction utilitaire pour surligner le lien actif
   const isActive = (path) => location.pathname === path;
 
   return (

@@ -56,7 +56,6 @@ export default function Home() {
   ];
 
   return (
-    
     <div 
       className="min-h-screen relative flex flex-col justify-center items-center px-4 py-16 overflow-hidden bg-slate-950"
       style={{
@@ -89,10 +88,9 @@ export default function Home() {
       <div className="absolute top-0 -left-4 w-72 h-72 bg-blue-600 rounded-full filter blur-3xl opacity-20" style={{ animation: 'blob 7s infinite' }}></div>
       <div className="absolute top-0 -right-4 w-72 h-72 bg-cyan-600 rounded-full filter blur-3xl opacity-20" style={{ animation: 'blob 7s infinite', animationDelay: '2s' }}></div>
       <div className="absolute -bottom-8 left-20 w-72 h-72 bg-purple-600 rounded-full filter blur-3xl opacity-20" style={{ animation: 'blob 7s infinite', animationDelay: '4s' }}></div>
-
+      
       <div className="max-w-6xl w-full mx-auto text-center relative z-10">
         
-        {/* BADGE VERT ÉMERAUDE */}
         <div className="animate-slide-up" style={{ animationDelay: '0s' }}>
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-emerald-500/30 mb-8 shadow-sm">
             <span className="relative flex h-3.5 w-3.5">
@@ -100,12 +98,12 @@ export default function Home() {
               <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500"></span>
             </span>
             <span className="text-sm font-bold text-emerald-400">
-              À la recherche d'une alternance (Sept. 2026) - Master Informatique
+              À la recherche d'une alternance (Nov. 2026) - Master Informatique
             </span>
           </div>
         </div>
-
-        {/* Textes en blanc et gris clair pour ressortir sur le fond noir */}
+        
+        
         <h1 className="animate-slide-up text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight" style={{ animationDelay: '0.1s' }}>
           Bonjour, je suis <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Paul Bellanger</span>
         </h1>
@@ -114,7 +112,7 @@ export default function Home() {
           Passionné par le développement web, la programmation objet et l'Internet des Objets (IoT). 
           Je conçois des solutions mêlant logiciels et matériels pour répondre à des problématiques concrètes.
         </p>
-
+        
         {/* Boutons adaptés au thème sombre */}
         <div className="animate-slide-up flex flex-wrap justify-center gap-4 mb-20" style={{ animationDelay: '0.3s' }}>
           <Link 
@@ -132,7 +130,7 @@ export default function Home() {
             Mon GitHub
           </a>
         </div>
-
+        
         {/* Grille de cartes */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
           {menuCards.map((card, index) => (
@@ -155,7 +153,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-
+        
       </div>
     </div>
   );

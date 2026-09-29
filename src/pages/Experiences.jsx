@@ -4,10 +4,10 @@ export default function Experiences() {
   const experiencesData = [
     {
       id: 1,
-      title: 'Master Informatique',
+      title: 'MSc MBA - Architecte des Systèmes d\'Information',
       organization: 'Epitech, Paris',
       date: '2026 - 2028',
-      description: 'Spécialisation en architecture logicielle, gestion de projets complexes et DevOps. \n- Déploiement CI/CD\n- Architecture Microservices\n- Management d\'équipe agile',
+      description: "Cursus préparant au titre d'Expert en management des systèmes d'information ou Architecte des Systèmes d'information, avec une double spécialisation technique :\n- Spécialité Réalité Virtuelle (VR) : Développement d'applications immersives et modélisation d'environnements 3D.\n- Spécialité IoT & Systèmes Embarqués : Programmation bas niveau (C/C++), interfaçage de capteurs et conception d'architectures matérielles.\n- Architecture & Management SI : Pilotage de projets complexes et urbanisation des systèmes.\n\nCe cursus permet d'allier une vision stratégique globale du SI à une forte expertise technique sur les objets connectés et les environnements virtuels.",
       type: 'edu'
     },
     {

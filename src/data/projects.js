@@ -164,7 +164,7 @@ export const projectsData = {
     },
     {
       id: 'tamagotchi2',
-      title: 'Tamagitchi 2.0',
+      title: 'Tamagotchi 2.0',
       tech: 'ESP32 / C++ / Game Design / Pixel Art',
       date: 'juillet 2024 - Projet en pause',
       githubLink: '',

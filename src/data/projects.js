@@ -7,17 +7,11 @@ export const projectsData = {
       title: 'Projet de fin d\'étude : AllScans', 
       tech: 'React / Python / FastAPI / MongoDB / Docker',
       date: '2025 - 2026',
-      images: [
-        'https://via.placeholder.com/800x400?text=Dashboard+Image+1',
-        'https://via.placeholder.com/400x300?text=Dashboard+Image+2',
-        'https://via.placeholder.com/400x300?text=Dashboard+Image+3'
-      ],
+      images: [],
       content: [
-        "Ce projet consistait à développer un tableau de bord complet pour la gestion des clients d'une agence locale. L'objectif principal était de regrouper toutes les informations éparpillées dans divers fichiers Excel vers une interface unique et sécurisée.",
-        "J'ai pris en charge le développement full-stack, de la conception de la base de données PostgreSQL jusqu'à l'interface en React. Une attention particulière a été portée sur l'optimisation des requêtes, car le volume de données à traiter quotidiennement était important.",
-        "L'un des plus gros défis a été la mise en place d'un système de génération de rapports PDF à la volée, qui a nécessité l'intégration d'une file d'attente pour ne pas bloquer l'interface utilisateur lors des exports lourds."
+        "Work in progress"
       ],
-      githubLink: 'https://github.com/votre-profil/dashboard',
+      githubLink: 'https://github.com/Methdec/All_Scans',
       demoLink: 'https://demo-dashboard.com'
     },
     { 
@@ -43,7 +37,7 @@ export const projectsData = {
       documents: []
     },
     {
-      id: 'tamagotchi-esp32',
+      id: 'tamagotchi',
       title: 'Console Tamagotchi & Mini-RPG',
       tech: 'ESP32 / C++ / Impression 3D / Pixel Art',
       date: '2024',
